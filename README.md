@@ -1,6 +1,8 @@
 Openscoring application for the Docker distributed applications platform
 
-Openscoring provides [REST API] (https://github.com/jpmml/openscoring) for publishing and evaluating predictive models:
+# Overview #
+
+[Openscoring] (https://github.com/jpmml/openscoring) provides REST API for publishing and evaluating predictive models:
 
 * Model deployment and undeployment
 * Model evaluation in single prediction, batch prediction and CSV prediction modes
@@ -48,7 +50,7 @@ Running the image in the `bridge` (default) networking mode:
 sudo docker run --net="bridge" -p 8080:8080 -v /path/to/pmml:/openscoring/pmml jpmml/openscoring:latest --model-dir /openscoring/pmml
 ```
 
-The container uses Docker's default network setup, which is separate from host's network stack. It is impossible to use privileged HTTP methods. The only option for deploying and undeploying models is via the PMML auto-deployment directory `/openscoring/pmml`. This directory is mapped to host's filesystem directory `/path/to/pmml` using the *data volume* mechanism.
+The container uses Docker's default network setup, which is separate from host's network stack. It is impossible to use privileged HTTP methods. The only option for deploying and undeploying models is via the model auto-deployment directory `/openscoring/pmml`. This directory is mapped to host's filesystem directory `/path/to/pmml` using the *data volume* mechanism.
 
 # License #
 
