@@ -1,4 +1,3 @@
-FROM java:8
 FROM maven:3.3-jdk-8
 
 MAINTAINER Villu Ruusmann <villu.ruusmann@gmail.com>
