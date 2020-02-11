@@ -1,7 +1,7 @@
 Openscoring-Docker
 ==================
 
-Openscoring application for the Docker distributed applications platform
+Openscoring application for the Docker distributed applications platform.
 
 # Prerequisites #
 
@@ -9,33 +9,29 @@ Openscoring application for the Docker distributed applications platform
 
 # Installation #
 
-Building the `latest` Openscoring application image from the `HEAD` revision:
+Clone the repository:
 
 ```
-sudo docker build -t openscoring/openscoring:latest .
+git clone https://github.com/openscoring/openscoring-docker.git
+```
+
+Enter the project root directory and edit the Openscoring application configuration file `application.conf` as necessary.
+
+Build the image:
+
+```
+docker build -t openscoring/openscoring:latest .
 ```
 
 # Usage #
 
-### Interactive mode ###
-
-Running the image in the `host` networking mode:
+Run the image in "host" mode:
 
 ```
-sudo docker run --net="host" openscoring/openscoring:latest
+docker run --net="host" openscoring/openscoring:latest
 ```
 
-The container shares host's network stack.
-
-### Passive mode ###
-
-Running the image in the `bridge` (default) networking mode:
-
-```
-sudo docker run --net="bridge" -p 8080:8080 openscoring/openscoring:latest
-```
-
-The container uses Docker's default network setup, which is separate from host's network stack.
+There should be a Model REST API endpoint ready at [http://localhost:8080/openscoring/model](http://localhost:8080/openscoring/model).
 
 # License #
 
