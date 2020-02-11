@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.openscoring</groupId>
+		<artifactId>openscoring</artifactId>
+		<version>2.0.1</version>
+	</parent>
+
 	<groupId>org.openscoring</groupId>
 	<artifactId>openscoring-docker</artifactId>
 	<version>1.0-SNAPSHOT</version>
@@ -22,21 +28,20 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:jpmml/openscoring-docker.git</connection>
-		<developerConnection>scm:git:git@github.com:jpmml/openscoring-docker.git</developerConnection>
-		<url>git://github.com/jpmml/openscoring-docker.git</url>
+		<connection>scm:git:git@github.com:openscoring/openscoring-docker.git</connection>
+		<developerConnection>scm:git:git@github.com:openscoring/openscoring-docker.git</developerConnection>
+		<url>git://github.com/openscoring/openscoring-docker.git</url>
 		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/jpmml/openscoring-docker/issues</url>
+		<url>https://github.com/openscoring/openscoring-docker/issues</url>
 	</issueManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.openscoring</groupId>
 			<artifactId>openscoring-server</artifactId>
-			<version>1.2.2</version>
 		</dependency>
 	</dependencies>
 
@@ -45,7 +50,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.6.1</version>
+				<version>3.1.0</version>
 				<configuration>
 					<filesets>
 						<fileset>
@@ -57,7 +62,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
+				<version>3.1.1</version>
 				<executions>
 					<execution>
 						<phase>package</phase>

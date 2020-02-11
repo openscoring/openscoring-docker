@@ -1,33 +1,18 @@
+Openscoring-Docker
+==================
+
 Openscoring application for the Docker distributed applications platform
 
-# Overview #
-
-[Openscoring] (https://github.com/jpmml/openscoring) provides REST API for publishing and evaluating predictive models:
-
-* Model deployment and undeployment
-* Model evaluation in single prediction, batch prediction and CSV prediction modes
-* Model metrics
-
-# Installation #
-
-Prerequisites:
+# Prerequisites #
 
 * Docker 1.5 or newer
 
-GitHub repository [jpmml/openscoring-docker] (https://github.com/jpmml/openscoring-docker) contains a `Dockerfile` for Openscoring command-line server application.
+# Installation #
 
 Building the `latest` Openscoring application image from the `HEAD` revision:
 
 ```
-sudo docker build -t jpmml/openscoring:latest github.com/jpmml/openscoring-docker
-```
-
-Additionally, this GitHub repository is tracked by Docker Hub repository [jpmml/openscoring] (https://registry.hub.docker.com/u/jpmml/openscoring/) using the "Automated Builds" mechanism.
-
-Pulling a stable Openscoring application image:
-
-```
-sudo docker pull jpmml/openscoring:1.2.2
+sudo docker build -t openscoring/openscoring:latest .
 ```
 
 # Usage #
@@ -37,25 +22,27 @@ sudo docker pull jpmml/openscoring:1.2.2
 Running the image in the `host` networking mode:
 
 ```
-sudo docker run --net="host" jpmml/openscoring:latest
+sudo docker run --net="host" openscoring/openscoring:latest
 ```
 
-The container shares host's network stack. It is possible to use privileged HTTP methods `PUT` and `DELETE` for deploying and undeploying models, respectively.
+The container shares host's network stack.
 
 ### Passive mode ###
 
 Running the image in the `bridge` (default) networking mode:
 
 ```
-sudo docker run --net="bridge" -p 8080:8080 -v /path/to/pmml:/openscoring/pmml jpmml/openscoring:latest --model-dir /openscoring/pmml
+sudo docker run --net="bridge" -p 8080:8080 openscoring/openscoring:latest
 ```
 
-The container uses Docker's default network setup, which is separate from host's network stack. It is impossible to use privileged HTTP methods. The only option for deploying and undeploying models is via the model auto-deployment directory `/openscoring/pmml`. This directory is mapped to host's filesystem directory `/path/to/pmml` using the *data volume* mechanism.
+The container uses Docker's default network setup, which is separate from host's network stack.
 
 # License #
 
-Openscoring is dual-licensed under the [GNU Affero General Public License (AGPL) version 3.0] (http://www.gnu.org/licenses/agpl-3.0.html) and a commercial license.
+Openscoring-Docker is licensed under the terms and conditions of the [GNU Affero General Public License, Version 3.0](https://www.gnu.org/licenses/agpl-3.0.html).
 
 # Additional information #
 
-Please contact [info@openscoring.io] (mailto:info@openscoring.io)
+Openscoring-Docker is developed and maintained by Openscoring Ltd, Estonia.
+
+Interested in using [Java PMML API](https://github.com/jpmml) or [Openscoring REST API](https://github.com/openscoring) software in your company? Please contact [info@openscoring.io](mailto:info@openscoring.io)
