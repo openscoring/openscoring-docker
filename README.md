@@ -31,7 +31,7 @@ Run the image in "host" mode:
 docker run --net="host" openscoring/openscoring:latest
 ```
 
-There should be a Model REST API endpoint ready at [http://localhost:8080/openscoring/model](http://localhost:8080/openscoring/model).
+There should be a Model REST API endpoint ready at [http://localhost:8080/model](http://localhost:8080/model) now.
 
 # License #
 

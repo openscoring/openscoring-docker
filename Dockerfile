@@ -1,4 +1,4 @@
-FROM maven:3.3-jdk-8
+FROM tomcat:8.5.51-jdk8-openjdk-slim
 
 MAINTAINER Villu Ruusmann <villu.ruusmann@gmail.com>
 
@@ -6,11 +6,10 @@ COPY . /openscoring
 
 WORKDIR /openscoring
 
-# Downloads the org.openscoring:openscoring-server JAR file and all its transitive dependency JAR files to "/openscoring/lib"
-RUN ["mvn", "clean", "package"]
+ENV CATALINA_OPTS="-Dconfig.file=application.conf -Djava.util.logging.config.file=logging.properties"
 
-ENTRYPOINT ["java", "-Dconfig.file=application.conf", "-Djava.util.logging.config.file=logging.properties", "-cp", "lib/*", "org.openscoring.server.Main"]
+ADD https://repo1.maven.org/maven2/org/openscoring/openscoring-webapp/2.0.1/openscoring-webapp-2.0.1.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
-CMD []
+CMD ["catalina.sh", "run"]
