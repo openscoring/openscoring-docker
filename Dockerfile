@@ -8,7 +8,7 @@ COPY . /openscoring
 
 WORKDIR /openscoring
 
-ENV CATALINA_OPTS="-Dconfig.file=application.conf -Djava.util.logging.config.file=logging.properties"
+ENV CATALINA_OPTS="-Dconfig.file=application.conf"
 
 ADD https://repo1.maven.org/maven2/org/openscoring/openscoring-webapp/${version}/openscoring-webapp-${version}.war /usr/local/tomcat/webapps/ROOT.war
 
