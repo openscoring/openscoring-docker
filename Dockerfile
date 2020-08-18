@@ -2,7 +2,7 @@ FROM tomcat:8.5.51-jdk8-openjdk-slim
 
 MAINTAINER Villu Ruusmann <villu.ruusmann@gmail.com>
 
-ARG version=2.0.1
+ARG version=2.0.2
 
 COPY . /openscoring
 
